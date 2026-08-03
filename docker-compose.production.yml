@@ -1,0 +1,37 @@
+
+volumes:
+  pg_data_production:
+  static_volume:
+
+services:
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - pg_data_production:/var/lib/postgresql/data
+  backend:
+    image: dmitriilys/taski_backend
+    env_file: .env
+    depends_on:
+      - db
+    volumes:
+      - static_volume:/backend_static
+
+  frontend:
+    image: dmitriilys/taski_frontend
+    env_file: .env
+  # command — аналог инструкции CMD в докерфайле.
+  # Команда, указанная под ключом command, переопределяет инструкцию CMD в докерфайле, заменяет её.
+    command: cp -r /app/build/. /frontend_static/
+    volumes:
+      - static_volume:/frontend_static
+  gateway:
+    image: dmitriilys/taski_gateway
+    env_file: .env
+    volumes:
+      - static_volume:/staticfiles
+    ports:
+      - 8000:80
+    depends_on:
+    - backend
+    - frontend
