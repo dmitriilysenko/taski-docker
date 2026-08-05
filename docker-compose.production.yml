@@ -20,8 +20,8 @@ services:
   frontend:
     image: dmitriilys/taski_frontend
     env_file: .env
-  # command — аналог инструкции CMD в докерфайле.
-  # Команда, указанная под ключом command, переопределяет инструкцию CMD в докерфайле, заменяет её.
+    # command — аналог инструкции CMD в докерфайле.
+    # Команда, указанная под ключом command, переопределяет инструкцию CMD в докерфайле, заменяет её.
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static_volume:/frontend_static
