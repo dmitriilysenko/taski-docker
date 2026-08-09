@@ -13,8 +13,8 @@ DEBUG = os.environ.get('DEBUG') == 'True'
 
 ALLOWED_HOSTS = [
     'localhost',
-    'taski-docker.hopto.org',
-    '81.26.180.71',
+    'http://taski-docker.hopto.org',
+    'https://taski-docker.hopto.org',
 ]
 
 

@@ -17,7 +17,7 @@ jobs:
         # ведь эта база будет работать только во время прогона тестов
         env:
           POSTGRES_USER: django_user
-          POSTGRES_PASSWORD: <PASSWORD>
+          POSTGRES_PASSWORD: test_bd_pswd
           POSTGRES_DB: django_db
         ports:
           - 5432:5432
@@ -209,4 +209,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TG_TOKEN }}
-        message: Деплой успешно выполнен!
+        message: Деплой taski успешно выполнен!
