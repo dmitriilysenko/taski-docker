@@ -96,7 +96,7 @@ jobs:
           # В параметре tags задаётся название и тег для образа.
           # Для каждого пересобранного образа
           # устанавливаем тег latest, чтобы потом
-          # на сервере и в docker-compose.yml не указывать версию
+          # на сервере и в docker-compose.production.yml не указывать версию
           tags: dmitriilys/taski_backend:latest
 
   frontend_tests:
@@ -174,7 +174,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
       # Копируем docker-compose.production.yml на продакшен-сервер
-      - name: Copy docker-compose.yml via ssh
+      - name: Copy docker-compose.production.yml via ssh
         uses: appleboy/scp-action@master
       # Передаём параметры для action appleboy/scp-action:
         with:

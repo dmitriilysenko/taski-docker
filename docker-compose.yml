@@ -1,6 +1,4 @@
-# Файл docker-compose.yml
 
-# Перечень volume
 volumes:
   pg_data:
   static:
