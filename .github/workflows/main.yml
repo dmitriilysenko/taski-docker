@@ -17,7 +17,7 @@ jobs:
         # ведь эта база будет работать только во время прогона тестов
         env:
           POSTGRES_USER: django_user
-          POSTGRES_PASSWORD: <PASSWORD>
+          POSTGRES_PASSWORD: test_bd_passwd
           POSTGRES_DB: django_db
         ports:
           - 5432:5432
@@ -51,7 +51,7 @@ jobs:
     - name: Test with flake8 and django tests
       env:
         POSTGRES_USER: django_user
-        POSTGRES_PASSWORD: <PASSWORD>
+        POSTGRES_PASSWORD: test_bd_passwd
         POSTGRES_DB: django_db
         # Сервер БД запущен в Docker, но его порт проброшен на хост
         # Поэтому подключаемся к 127.0.0.1:5432
