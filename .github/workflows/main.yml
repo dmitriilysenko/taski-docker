@@ -37,6 +37,7 @@ jobs:
     - name: Test with flake8 and django tests
       env:
         POSTGRES_USER: django_user
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
         POSTGRES_PASSWORD: test_bd_passwd
         POSTGRES_DB: django_db
         DB_HOST: 127.0.0.1
